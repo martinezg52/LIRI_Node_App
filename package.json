@@ -1,7 +1,6 @@
 {
   "name": "Homework_10_Liri",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,5 +13,15 @@
     "dotenv": "^8.0.0",
     "moment": "^2.24.0",
     "node-spotify-api": "^1.1.1"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/martinezg52/LIRI_Node_App.git"
+  },
+  "bugs": {
+    "url": "https://github.com/martinezg52/LIRI_Node_App/issues"
+  },
+  "homepage": "https://github.com/martinezg52/LIRI_Node_App#readme",
+  "description": ""
 }
