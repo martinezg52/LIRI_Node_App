@@ -1,18 +1,26 @@
 require("dotenv").config();
 
+//Spotify API and getting the keys from key.js
 var keys = require("./keys.js");
-var Spotify = require('node-spotify-api'); //Using the Spotify api and getting the key from keys.js
+var Spotify = require('node-spotify-api');
 var spotify = new Spotify(keys.spotify);
 
-var moment = require('moment'); //Both required to use moment for node
+//Requiring moment for Node
+
+var moment = require('moment');
 moment().format();
 
-var axios = require('axios'); //To get the information from the APIs for movie and concert-this
+//Requiring axios to call the API's for movies and concert-this
 
-var fs = require('fs'); //To read the random.txt file for the do-what-it-says function
+var axios = require('axios');
 
-var command = process.argv[2]; //For the switch statement
-var value = process.argv[3]; //To send the song/movie/concert to their respective functions
+//Requiring fs to read the random.txt file for the do-what-it-says function
+
+var fs = require('fs');
+
+//Setting up variables to capture input, command for the switch statement below and value fot the song/movie/concert functions
+var command = process.argv[2];
+var value = process.argv[3]; 
 
 switch (command) {
     case "concert-this":
@@ -28,6 +36,7 @@ switch (command) {
         doThis(value);
         break;
 };
+// Setting up a function that runs the value and queries the bands in town API, it retuns venue name, location and event
 
 function concertThis(value) {
     axios.get("https://rest.bandsintown.com/artists/" + value + "/events?app_id=codingbootcamp")
@@ -52,6 +61,8 @@ function concertThis(value) {
 
 }
 
+//Setting up a function that captures the value and queries the spotify api, it retuns artist, song and album name
+
 function spotifySong(value) {
     if(!value){
         value = "The Sign";
@@ -74,6 +85,8 @@ function spotifySong(value) {
         console.log(err);
     });
 }
+
+//setting up a function that captures the input value and runs a query from the omdb movie database, by default it returns Mr Nobody.
 
 function movieThis(value) {
     if(!value){
